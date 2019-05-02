@@ -1,0 +1,135 @@
+ALL CODES OF JSP – Actions – 
+ForwardActionTag.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Forward Action Tag without Parameter</title> </head> <body> 
+ 
+ <%-- Syntax of Action Tag - <jsp:action_name attribute="value" /> --%>     <jsp:forward page="printdate.jsp" />  
+ 
+  <%-- Syntax of jsp:forward action tag without parameter   --%>   <%-- <jsp:forward page="relativeURL | <%= expression %>" />  --%>    </body> </html> printdate.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+<title>Printing Today's Date</title> </head> <body> <p>Today's date: <%= (new java.util.Date()).toLocaleString()%> </p> </body> </html> 
+ 
+IncludeActionTag.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Include Action Tag</title> </head> <body> 
+ 
+<jsp:include page="printdate.jsp" /> 
+ 
+<%-- Syntax of jsp:forward action tag without parameter   --%>   <%-- <jsp:include page="relativeURL | <%= expression %>" />   --%>   
+ 
+</body> </html> printdate.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> 
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Printing Today's Date</title> </head> <body> <p>Today's date: <%= (new java.util.Date()).toLocaleString()%> </p> </body> </html> 
+ 
+property.html –  <!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title>Codes of Property in JSP</title> </head> <body> <form action="property.jsp" method="post">   Name:<input type="text" name="name"><br>     <input type="submit" value="register">   </form>  </body> </html> property.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Property JSP File</title> </head> <body> <jsp:useBean id="u" class="property.set_get"></jsp:useBean>   <jsp:setProperty property="*" name="u"/>      
+Record:<br>   <jsp:getProperty property="name" name="u"/><br>   </body> </html> 
+ 
+useBeanexample.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Insert title here</title> </head> <body> <jsp:useBean id="obj" class="actiontags.usebean.useBean"/>      <%   int m=obj.cube(5);   out.print("cube of 5 is "+m);   %>  </body> </html> useBean.jsp –  package actiontags.usebean; 
+ 
+public class useBean {  public int cube(int n){return n*n*n;}  } 
+ 
+ 
+application.html –  <!DOCTYPE html> <html> <head> 
+<meta charset="ISO-8859-1"> <title>JSP application implicit object</title> </head> <body> <!-- In JSP, application is an implicit object of type ServletContext.      The instance of ServletContext is created only once by the       web container when application or project is deployed on the server.      The instance of ServletContext is created only once by the web container       when application or project is deployed on the server. -->   <form action="application" method="post">     <table border=1 cellpadding=0 cellspacing=0 align=center>   <caption> Enter Your Name </caption>  <tr> <td> <input type="text" name="name"> </td> </tr>    <tr> <th colspan=2> <input type="submit" value="CLICK">                       <input type="reset" value="RESET">       </th> </tr>   </table>   </form>  </body> </html> application.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>JSP application implicit object</title> </head> <body>   <%       
+out.print("Welcome "+request.getParameter("name")+"<br>");   
+ 
+String Adriver=application.getInitParameter("driver_name");   out.print("driver name is= " + Adriver);      %> </body> </html> 
+ 
+exception.html –  <!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title>Exception Handling in JSP</title> </head> <body>  <form action="exception.jsp" method="post">     No1:<input type="text" name="n1" /> <br/><br/>     No2:<input type="text" name="n2" /> <br/><br/>     <input type="submit" value="divide"/>    </form>   </body> </html> exception.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Exception Handling in JSP</title> </head> <body>    <%@ page errorPage="error.jsp" %>   <%      
+String num1=request.getParameter("n1");   String num2=request.getParameter("n2");      int a=Integer.parseInt(num1);   int b=Integer.parseInt(num2);   int c=a/b;   out.print("division of numbers is: "+c);      %>  </body> </html> error.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Exception Handling in JSP</title> </head> <body>    <%@ page errorPage="error.jsp" %>   <%      String num1=request.getParameter("n1");   String num2=request.getParameter("n2");      int a=Integer.parseInt(num1);   int b=Integer.parseInt(num2);   int c=a/b;   out.print("division of numbers is: "+c);      %>  </body> </html> 
+ 
+ 
+ 
+form.html –  <!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title>Using POST Method</title> </head> <body>    <form action = "form.jsp" method = "POST">    <table>       <tr> <th>First Name: </th>             <td> <input type = "text" name = "fn"> </td> </tr>       <tr> <th> Last Name: </th>           <td> <input type = "text" name = "ln" /> </td> </tr>        <tr> <th colspan=2><input type = "submit" value = "Submit" /> </th>      </table>           </form> </body> </html> form.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Using POST Method</title> </head> <body>       <h1>Using POST Method to Read Form Data</h1>              <ul>          <li><p><b>First Name:</b>             <%= request.getParameter("fn")%>          </p></li>          <li><p><b>Last  Name:</b> 
+            <%= request.getParameter("ln")%>          </p></li>       </ul> </body> </html> 
+ 
+application.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Application object in JSP</title> </head> <body> <%          Integer hitsCount = (Integer)application.getAttribute("hitCounter");          if( hitsCount ==null || hitsCount == 0 ) {             /* First visit */             out.print("Welcome to my website!");             hitsCount = 1;          } else {             /* return visit */             out.print("Welcome back to my website!");             hitsCount += 1;          }          application.setAttribute("hitCounter", hitsCount);       %>       <p align=center>Total number of visits: <%= hitsCount%></p> </body> </html> 
+ 
+ 
+config.html –  <!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title>JSP config implicit object</title> </head>  <!-- In JSP, config is an implicit object of type ServletConfig.       This object can be used to get initialization parameter for a particular JSP page.        The config object is created by the web container for each jsp page.   --> <body>   <form action="config" method="post">    <input type="text" name="name">    <input type="submit" value="SUBMIT"><br/>    </form> </body> </html> config.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Insert title here</title> </head> <body>  <%     out.print("Welcome "+request.getParameter("name")+"<br>");        String driver=config.getInitParameter("dname");    out.print("driver name is="+driver);    %>   </body> 
+</html> 
+ 
+out_implicit.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>JSP Out Implicit Object</title> </head> <body bgcolor="pink">   <% out.print("This is the example of JSP Out Implicit Object"); %>   </body>   </html> 
+ 
+pagecontext.html –  <!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title>JSP pageContext implicit object</title> </head> <body> <!--  In JSP, pageContext is an implicit object of type PageContext class. -->   <form action="pagecontext.jsp" method="post">     <table border=1 cellpadding=0 cellspacing=0 align=center>   <caption> Enter Your Name </caption>  <tr> <td> <input type="text" name="name"> </td> </tr>    <tr> <th colspan=2> <input type="submit" value="CLICK">                       <input type="reset" value="RESET">       </th> </tr> 
+  </table>   </form>  </body> </html> pagecontext.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>JSP pageContext implicit object</title> </head> <body>    <%       String name=request.getParameter("name");   out.print("Welcome "+name);      pageContext.setAttribute("user",name,PageContext.SESSION_S COPE);      %>   <br/> <a href="pagecontext1.jsp">Next Page</a>   </body> </html> pagecontext1.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>JSP pageContext implicit object</title> 
+</head> <body> <%       String name=(String)pageContext.getAttribute("user",PageContext.S ESSION_SCOPE);   out.print("Hello "+name);      %>  <br/> <a href="pagecontext.html">Go Back</a>  </body> </html> 
+ 
+response.html –  <!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title>JSP response implicit object</title> </head> <body> 
+ 
+<!-- In JSP, response is an implicit object of type HttpServletResponse.       The instance of HttpServletResponse is created by the web container       for each jsp request.       It can be used to add or manipulate response       such as redirect response to another resource, send error etc.--> 
+ 
+<form action="response.jsp">   <input type="text" name="name">   <input type="submit" value="CLICK"><br/>   </form> </body> </html> 
+ 
+ 
+response.jsp – <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>JSP response implicit object</title> </head> <body> <%     response.sendRedirect("test.html");   %>    <%--     response.sendRedirect("https://www.google.com");      --%>   
+ 
+</body> </html> 
+ 
+session.html -  <!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title>JSP session implicit object</title> </head> <body> <!-- In JSP, session is an implicit object of type HttpSession.      The Java developer can use this object to set,get or remove attribute       or to get session information. --> <form action="session.jsp" method="post">     <table border=1 cellpadding=0 cellspacing=0 align=center>   <caption> Enter Your Name </caption>  <tr> <td> <input type="text" name="name"> </td> </tr>   
+ <tr> <th colspan=2> <input type="submit" value="CLICK">                       <input type="reset" value="RESET">       </th> </tr>   </table>   </form>  </body> </html> session.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>JSP session implicit object</title> </head> <body>   <%       String name=request.getParameter("name");   out.print("Welcome "+name);      session.setAttribute("user",name);   %>  <br/> <a href="session1.jsp">Next JSP Page</a>         </body> </html> session1.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>JSP session implicit object</title> </head> <body> <%       String name=(String)session.getAttribute("user");   out.print("Hello "+name);      %> 
+ 
+<br/> <a href="session.html">Go Back</a>   </body> </html> 
+ 
+inheritance.jsp -  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Insert title here</title> </head> <body>     <%!             javax.servlet.jsp.JspWriter localOut; 
+ 
+            class BaseClass             {                 public void parent() throws java.io.IOException                 {                     localOut.print("In Parent Class...!!!<br>"); 
+                }             } 
+ 
+            class DerivedClass extends BaseClass             {                 public void child() throws java.io.IOException                  {                     localOut.print("In Child Class...!!!!<br>");                 }             }         %>              <%             localOut = out;                  out.print("Creating an Derived Class from Base Class...<br>");             DerivedClass a = new DerivedClass();             a.parent();             a.child();         %> </body> </html> 
+ 
+include.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Include exercise</title> </head> <body> 
+ 
+<h4> Enter the details in the form - </h4> 
+ 
+ <%@ include file="form.html" %>      
+
+ </body> </html> form.html –  <!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title>Include exercise</title> </head> <body> <form action="form.jsp" method="post"> <table> <tr> <th> First Name:  </th> <td> <input type="text" name="fname"> </td> </tr> <tr> <th> Last Name: </th> <td> <input type="text" name="lname"> </td> </tr> <tr> <th> Mobile Number: </th> <td>  <input type="number" name="mob"> </td> </tr> <tr> <th colspan=2>     <input type="submit" value="Submit"> </th>  </tr>    </table>   </form> </body> </html> form.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Include exercise</title> </head> <body>  <%   String first=request.getParameter("fname");   String last=request.getParameter("lname");  
+String mobile=request.getParameter("mob"); out.print("Welcome Viewers :- <br>"); out.print("Your credientials <br>"); out.print("First Name is :- " +first + "<br>"); out.print("Last Name is :- " +last + "<br>"); out.print("Mobile No. is :- " +mobile + "<br>");     %>  </body> </html> 
+ 
+page_include.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Insert title here</title> </head> <body> <h4> This is the part of landing page</h4>   <%@ include file="include.html" %>      
+ 
+</body> </html> include.html –  <!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title>Insert title here</title> </head> <body>   <h2> Hi</h2> </body> </html> 
+page_directive.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Example of import attribute</title> </head> <body>     <%@ page import="java.util.Date" %>          Today is: <%= new Date() %>   </body> </html> 
+ 
+page_buffer.jsp – <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Insert title here</title> </head> <body>   <%--The buffer attribute sets the buffer size in kilobytes to handle output generated by the JSP page.   The default size of the buffer is 8Kb. --%>    <%@ page buffer="16kb" %>       Today is: <%= new java.util.Date() %>   </body> </html> 
+ 
+ 
+page_info.jsp – <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Info Attribute of Page Directives</title> </head> <body>  <%--Info attribute used to give some information to JSP page --%>    <%@ page info="created by BCA Students" %>   Today is: <%= new java.util.Date() %> </body> </html> 
+ 
+javabeans.html-  <!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title>Insert title here</title> </head> <body>  <form action="use.jsp" method="post">  <table>   <tr> <th> First Name </th>  <td> <input type="text" name="fname"></td> </tr>  <tr> <th> Last Name </th>  <td> <input type="text" name="lname"></td> </tr>  <tr> <th> Mobile Number </th>  <td> <input type="number" name="mob"></td> </tr>  <tr> <th colspan=2> <input type="submit" value="Submit"> </th> </tr>  </table>  </form> </body> 
+</html> use.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Insert title here</title> </head> <body> <jsp:useBean id="obj" class="bean.use" /> 
+ 
+<jsp:setProperty name="obj" property="*" /> 
+ 
+welcome, <br> First Name - <jsp:getProperty name="obj" property="fname" /> <br> Last Name - <jsp:getProperty name="obj" property="lname" /> <br> Mobile Number - <jsp:getProperty name="obj" property="mob" /> <br> </body> </html> use.java –  package bean; 
+ 
+public class use {  private String fname,lname,mob;   public void setFname(String fname)   {    this.fname=fname;   }   public String getFname()   {    return fname;   }   public void setLname(String lname) 
+  {    this.lname=lname;   }   public String getLname()   {    return lname;   }   public void setmob(String mob)   {    this.mob=mob;   }   public String getmob()   {    return mob;   } } 
+ 
+ 
+scriptlet_tag.html –  <!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title> Scripting Elements</title> </head> <body>   <form action="scriptlet_tag.jsp" method="post">    <input type="text" name="sname">    <input type="submit" value="OK">   </form> </body> </html> scriptlet_tag.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> 
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Scriptlet tag</title> </head> <body> <!--  There are three types of scripting elements:         scriptlet tag , expression tag, declaration tag            -->    <%     String name=request.getParameter("sname");     out.print("welcome "+name);       %>  </body> </html> 
+ 
+comment.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Comments in JSP</title> </head> <body> <h2>A Test of Comments</h2>        <%-- This comment will not be visible in the page source --%>  </body> </html> 
+ 
+declaration.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Declarations in JSP</title> </head> <body> 
+ 
+<%! int i = 0; %>   <%       int j=1;    int a=2,b=3;     out.print("The Value is "+(i+j)+"<br><br>");     out.print("The value of a - "+a+"<br>");     out.print("The value of b - "+b+"<br>");     out.print("The Value of a & b is "+(a+b)); %>       </body> </html> 
+ 
+expressions.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Expressions in JSP</title> </head> <body>  <p>Today's date: <%= (new java.util.Date()).toLocaleString()%> </p> </body> </html> 
+ 
+ 
+if..else.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>If...Else</title> </head> <body> <%! int day = 1; %>   <% if (day == 1 || day == 7) { %>          <p> Today is weekend</p>       <% } else { %>          <p> Today is not weekend</p>       <% } %> </body> </html> 
+ 
+switchcase.jsp –  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> <title>Switch_Case Statements</title> </head> <body> <%! int day = 4; %> <%           switch(day) {             case 0:                out.println("It\'s Sunday.");                break; 
+            case 1:                out.println("It\'s Monday.");                break;             case 2:                out.println("It\'s Tuesday.");                break;             case 3:                out.println("It\'s Wednesday.");                break;             case 4:                out.println("<b>"+"It\'s Thursday.");                break;             case 5:                out.println("It\'s Friday.");                break;             default:                out.println("It's Saturday.");          }       %> </body> </html> 
+ 
+using_xml.jsp  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"     pageEncoding="ISO-8859-1"%> 
+ 
+<?xml version="1.0" encoding="UTF-8"?> 
+ 
+ 
+<lpu> 
+ 
+  <department>     <name>BCA</name>   </department>      <department>     <name>MCA</name>   </department>      <department>     <name>BSc IT</name> 
+  </department>      <department>     <name>BBA</name>   </department> 
+ 
+</lpu> 
+ 
